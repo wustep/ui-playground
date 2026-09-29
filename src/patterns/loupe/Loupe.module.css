@@ -1,0 +1,57 @@
+.list {
+  position: relative;
+  padding: 4px 0 4px 18px;
+  outline: none;
+  border-radius: var(--radius-md);
+}
+
+.list:focus-visible {
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.rail {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 7px;
+  width: 1px;
+  background: var(--line);
+}
+
+.lens {
+  position: absolute;
+  top: 0;
+  left: 5px;
+  width: 5px;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  box-shadow: var(--glow);
+  pointer-events: none;
+}
+
+.row {
+  position: relative;
+  border-radius: var(--radius-sm);
+  cursor: default;
+  transition: background-color 160ms ease;
+}
+
+.row[data-focused='true'] {
+  background: var(--surface-2);
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 32px;
+  padding: 0 10px;
+}
+
+.detail {
+  overflow: hidden;
+}
+
+.detailInner {
+  padding: 2px 10px 12px 28px;
+}

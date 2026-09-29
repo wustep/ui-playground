@@ -1,0 +1,255 @@
+.card {
+  width: min(100%, 600px);
+  padding: 14px 10px 10px 4px;
+}
+
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 2px 8px 10px 22px;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.sub {
+  margin-top: 1px;
+  font-size: 12.5px;
+  color: var(--fg-3);
+}
+
+.failedCount {
+  color: var(--danger-ink);
+}
+
+.hint {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--fg-3);
+}
+
+/* ── Row ────────────────────────────────────────────────── */
+
+.dot {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--success);
+}
+
+.dot[data-status='failed'] {
+  background: var(--danger);
+}
+
+.dot[data-status='canceled'] {
+  background: transparent;
+  box-shadow: inset 0 0 0 1.5px var(--fg-3);
+}
+
+.dot[data-status='building'] {
+  background: var(--accent);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% {
+    box-shadow: 0 0 0 4px var(--accent-soft);
+  }
+}
+
+.message {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 13.5px;
+  color: var(--fg);
+}
+
+.branch {
+  flex: none;
+  max-width: 9em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--fg-3);
+}
+
+.ago {
+  flex: none;
+  width: 2.6em;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--fg-3);
+}
+
+/* ── Detail ─────────────────────────────────────────────── */
+
+.detail {
+  display: grid;
+  gap: 10px;
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  font-size: 12.5px;
+  color: var(--fg-2);
+}
+
+.author {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: color-mix(in oklch, oklch(0.72 0.14 calc(var(--hue) * 1deg)) 35%, var(--surface));
+  color: color-mix(in oklch, oklch(0.55 0.16 calc(var(--hue) * 1deg)) 60%, var(--fg));
+}
+
+.hash {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--fg-3);
+}
+
+.diff {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+}
+
+.adds {
+  color: var(--success);
+}
+
+.dels {
+  color: var(--danger-ink);
+}
+
+.blocks {
+  display: inline-flex;
+  gap: 1.5px;
+  margin-left: 2px;
+}
+
+.blocks i {
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  background: var(--danger);
+  opacity: 0.85;
+}
+
+.blocks i[data-kind='add'] {
+  background: var(--success);
+}
+
+.status {
+  margin-left: auto;
+  font-family: var(--label-font);
+  font-size: var(--label-size);
+  font-weight: var(--label-weight);
+  text-transform: var(--label-case);
+  letter-spacing: var(--label-tracking);
+  color: var(--success);
+}
+
+.status[data-status='failed'] {
+  color: var(--danger-ink);
+}
+
+.status[data-status='building'] {
+  color: var(--accent-ink);
+}
+
+.status[data-status='canceled'] {
+  color: var(--fg-3);
+}
+
+.buildRow {
+  display: grid;
+  grid-template-columns: 4.2em minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.buildLabel,
+.checks {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--fg-2);
+}
+
+.track {
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--sunken);
+  overflow: hidden;
+}
+
+.bar {
+  display: flex;
+  gap: 2px;
+  height: 100%;
+}
+
+.segment {
+  flex-basis: 0;
+  height: 100%;
+  transform-origin: left center;
+  background: color-mix(in oklab, var(--fg) 30%, transparent);
+}
+
+.segment[data-phase='1'] {
+  background: var(--fg-2);
+}
+
+.segment[data-phase='1'][data-status='failed'] {
+  background: var(--danger);
+}
+
+.segment[data-phase='1'][data-status='building'] {
+  background: var(--accent);
+}
+
+.error {
+  padding: 7px 9px;
+  border-radius: var(--radius-sm);
+  background: var(--danger-soft);
+  color: var(--danger-ink);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+
+@media (max-width: 420px) {
+  .branch {
+    display: none;
+  }
+}
