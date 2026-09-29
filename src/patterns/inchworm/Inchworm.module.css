@@ -1,0 +1,105 @@
+.root {
+  --iw-pad: 3px;
+  --iw-radius: max(0px, calc(var(--radius-pill) - var(--iw-pad)));
+  --iw-h: 32px;
+
+  position: relative;
+  display: inline-flex;
+  gap: 2px;
+  padding: var(--iw-pad);
+  border-radius: var(--radius-pill);
+  border: var(--stroke) solid var(--edge);
+  background: var(--sunken);
+  isolation: isolate;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.root[data-size='sm'] {
+  --iw-h: 26px;
+}
+
+.pill {
+  position: absolute;
+  top: var(--iw-pad);
+  bottom: var(--iw-pad);
+  left: 0;
+  z-index: 0;
+  border-radius: var(--iw-radius);
+  background: var(--selected-bg);
+  box-shadow: var(--selected-shadow);
+  outline: var(--stroke) solid var(--selected-edge);
+  outline-offset: calc(var(--stroke) * -1);
+  opacity: 0;
+  will-change: transform, width;
+}
+
+.pill[data-ready='true'] {
+  opacity: 1;
+}
+
+.option {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: var(--iw-h);
+  padding: 0 14px;
+  border-radius: var(--iw-radius);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--fg-2);
+  white-space: nowrap;
+  transition: color 160ms ease;
+}
+
+.root[data-size='sm'] .option {
+  padding: 0 10px;
+  font-size: 12.5px;
+}
+
+button.option:hover {
+  color: var(--fg);
+}
+
+button.option:focus-visible {
+  outline-offset: -2px;
+}
+
+.icon {
+  display: inline-grid;
+  place-items: center;
+}
+
+/* Same layout as the buttons, painted in the selected color, clipped to the pill. */
+.inverse {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+  padding: var(--iw-pad);
+  pointer-events: none;
+}
+
+.inverse .option {
+  color: var(--selected-fg);
+}
+
+/* Debug overlay (Dials → show edges) */
+.edge {
+  position: absolute;
+  top: -6px;
+  bottom: -6px;
+  left: -1px;
+  z-index: 3;
+  width: 2px;
+  background: var(--danger);
+  pointer-events: none;
+}
+
+.edge[data-edge='right'] {
+  background: var(--success);
+}

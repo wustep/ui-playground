@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" data-theme="paper">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#efebe2" />
+    <meta name="description" content="A laboratory of tasteful, functional UI patterns. Storyboarded, tunable, themeable." />
+    <title>UI Playground</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect x='1' y='1' width='7' height='7' rx='2' fill='%231a1814'/%3E%3Crect x='10' y='1' width='7' height='7' rx='3.5' fill='%232f3fe0'/%3E%3Crect x='1' y='10' width='7' height='7' rx='3.5' fill='%231a1814' opacity='.35'/%3E%3Crect x='10' y='10' width='7' height='7' rx='2' fill='%231a1814'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Geist+Mono:wght@300..600&family=Geist:wght@100..900&family=Instrument+Serif:ital@0;1&display=swap"
+    />
+    <script>
+      // Paint the saved theme before first render to avoid a flash.
+      try {
+        var t = localStorage.getItem('uip:theme')
+        if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'ink' : 'paper'
+        document.documentElement.dataset.theme = t
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

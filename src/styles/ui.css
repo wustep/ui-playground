@@ -1,0 +1,167 @@
+/* ─────────────────────────────────────────────────────────
+ * SHARED PRIMITIVES
+ *
+ * The handful of controls every pattern leans on, so buttons,
+ * chips, cards and inputs read as one visual language across
+ * the whole playground. Everything is token-driven.
+ * ───────────────────────────────────────────────────────── */
+
+.ui-card {
+  background: var(--surface);
+  border: var(--stroke) solid var(--edge);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-2);
+}
+
+/* ── Button ──────────────────────────────────────────────── */
+
+.ui-btn {
+  --btn-bg: var(--surface);
+  --btn-fg: var(--fg);
+  --btn-edge: var(--edge);
+  --btn-hover: var(--surface-2);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: var(--radius-sm);
+  border: var(--stroke) solid var(--btn-edge);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  box-shadow: var(--shadow-1);
+  font-size: 13.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  user-select: none;
+  transition:
+    transform 140ms cubic-bezier(0.2, 0, 0, 1),
+    box-shadow 140ms cubic-bezier(0.2, 0, 0, 1),
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.ui-btn:hover {
+  background: var(--btn-hover);
+}
+
+.ui-btn:active:not(:disabled) {
+  transform: translate(var(--press-shift), var(--press-shift)) scale(var(--press-scale));
+  box-shadow: none;
+}
+
+.ui-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.ui-btn[data-variant='primary'] {
+  --btn-bg: var(--accent);
+  --btn-fg: var(--accent-fg);
+  --btn-hover: var(--primary-hover-bg);
+  --btn-edge: var(--primary-edge);
+}
+
+.ui-btn[data-variant='primary']:hover {
+  box-shadow: var(--primary-hover-shadow);
+}
+
+.ui-btn[data-variant='danger'] {
+  --btn-bg: var(--danger);
+  --btn-fg: var(--danger-fg);
+  --btn-hover: color-mix(in oklab, var(--danger) 90%, var(--fg));
+  --btn-edge: var(--primary-edge);
+}
+
+.ui-btn[data-variant='ghost'] {
+  --btn-bg: transparent;
+  --btn-edge: transparent;
+  --btn-fg: var(--fg-2);
+  box-shadow: none;
+}
+
+.ui-btn[data-variant='ghost']:hover {
+  --btn-fg: var(--fg);
+}
+
+.ui-btn[data-size='sm'] {
+  height: 30px;
+  padding: 0 10px;
+  font-size: 12.5px;
+  gap: 6px;
+}
+
+/* ── Chip (multi-select toggle) ──────────────────────────── */
+
+.ui-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  border: var(--stroke) solid var(--edge);
+  background: var(--surface);
+  color: var(--fg-2);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  user-select: none;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease,
+    transform 140ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.ui-chip:hover {
+  color: var(--fg);
+  background: var(--surface-2);
+}
+
+.ui-chip:active {
+  transform: scale(var(--press-scale));
+}
+
+.ui-chip[aria-pressed='true'],
+.ui-chip[aria-checked='true'] {
+  background: var(--toggle-on-bg);
+  color: var(--toggle-on-fg);
+  border-color: var(--toggle-on-edge);
+}
+
+/* ── Input ───────────────────────────────────────────────── */
+
+.ui-input {
+  width: 100%;
+  height: 38px;
+  padding: 0 12px;
+  border-radius: var(--radius-sm);
+  border: var(--stroke) solid var(--edge);
+  background: var(--surface);
+  color: var(--fg);
+  font-size: 14px;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.ui-input::placeholder {
+  color: var(--fg-3);
+}
+
+.ui-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.ui-input[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
+.ui-input[aria-invalid='true']:focus {
+  box-shadow: 0 0 0 3px var(--danger-soft);
+}
