@@ -1,0 +1,145 @@
+.wrap {
+  position: relative;
+  display: inline-grid;
+  justify-items: end;
+}
+
+.buttonWrap {
+  position: relative;
+}
+
+.button {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  min-width: 164px;
+  height: 38px;
+  padding: 0 16px;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  border: var(--stroke) solid var(--edge);
+  background: var(--surface);
+  box-shadow: var(--shadow-1);
+  color: var(--danger-ink);
+  font-size: 13.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    transform 160ms cubic-bezier(0.2, 0, 0, 1),
+    box-shadow 160ms ease;
+}
+
+.button:hover {
+  background: var(--danger-soft);
+}
+
+.button[data-phase='holding'] {
+  background: var(--danger-soft);
+  transform: translate(var(--press-shift), var(--press-shift)) scale(var(--press-scale));
+  box-shadow: none;
+}
+
+.button[data-phase='undo'] {
+  color: var(--fg);
+  background: var(--surface-2);
+}
+
+.label {
+  grid-area: 1 / 1;
+}
+
+.count {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--fg-3);
+}
+
+/* ── The fuse ───────────────────────────────────────────── */
+
+.ring {
+  position: absolute;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.cord,
+.lit {
+  fill: none;
+  stroke-width: 2px;
+  stroke-linecap: round;
+}
+
+.cord {
+  stroke: var(--fg-3);
+  stroke-dasharray: 0.006 0.01;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.ring[data-phase='holding'] .cord {
+  opacity: 0.55;
+}
+
+.lit {
+  stroke: var(--danger);
+  opacity: 0; /* shown by the burn listener once the fuse has length */
+  transition: stroke 240ms ease;
+}
+
+.ring[data-phase='undo'] .lit {
+  stroke: var(--fg-2);
+}
+
+.spark {
+  transition: opacity 120ms ease;
+}
+
+.halo {
+  fill: var(--danger);
+  opacity: 0.28;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: flicker 180ms ease-in-out infinite alternate;
+}
+
+.core {
+  fill: var(--danger);
+  stroke: var(--surface);
+  stroke-width: 1;
+}
+
+.ring[data-phase='undo'] .halo,
+.ring[data-phase='undo'] .core {
+  fill: var(--fg-2);
+}
+
+@keyframes flicker {
+  from {
+    transform: scale(0.75);
+    opacity: 0.2;
+  }
+  to {
+    transform: scale(1.15);
+    opacity: 0.36;
+  }
+}
+
+.hint {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  padding: 5px 9px;
+  border-radius: var(--radius-sm);
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: var(--shadow-2);
+}
