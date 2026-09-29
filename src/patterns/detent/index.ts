@@ -6,6 +6,7 @@ export const detent: PatternMeta = {
   name: 'Detent',
   job: 'Input',
   tagline: 'Numeric fields you scrub, with stops that click like hardware.',
+  try: 'Drag Size slowly past 32, then flick it. Or click a field and type.',
   summary:
     'Typing numbers is precise but slow; sliders are fast but eat space and hide the value. Detent keeps a compact field, unfurls a ruler only while you drag, and gives the values that matter a physical click, so you can land on 16px by feel.',
   craft: [

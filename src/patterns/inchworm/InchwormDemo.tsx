@@ -17,7 +17,7 @@ const RANGES = [
   { value: 'day', label: 'Day', span: '12h', unit: 'vs yesterday', seed: 11, scale: 4_200 },
   { value: 'week', label: 'Week', span: '7d', unit: 'vs last week', seed: 23, scale: 31_000 },
   { value: 'month', label: 'Month', span: '30d', unit: 'vs last month', seed: 37, scale: 128_000 },
-  { value: 'quarter', label: 'Quarter', span: '13w', unit: 'vs last quarter', seed: 41, scale: 402_000 },
+  { value: 'quarter', label: 'Qtr', span: '13w', unit: 'vs last quarter', seed: 41, scale: 402_000 },
   { value: 'year', label: 'Year', span: '12mo', unit: 'vs last year', seed: 59, scale: 1_610_000 },
 ] as const
 

@@ -6,6 +6,7 @@ export const fuse: PatternMeta = {
   name: 'Fuse',
   job: 'Confirmation',
   tagline: 'Hold to commit. The same fuse then burns down as your undo window.',
+  try: 'Tap once. Then hold, and let go halfway. Then hold all the way.',
   summary:
     'Confirmation dialogs get dismissed on reflex, and undo toasts appear somewhere your eyes aren’t. Fuse asks for a deliberate hold, shows progress where your finger already is, and turns the button itself into the undo, timed by the same fuse burning back down.',
   craft: [

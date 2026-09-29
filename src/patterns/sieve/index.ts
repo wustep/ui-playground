@@ -6,6 +6,7 @@ export const sieve: PatternMeta = {
   name: 'Sieve',
   job: 'Filtering',
   tagline: 'Filters that show what they cost, and where the results went.',
+  try: 'Turn the filters on one by one, reading the tray as you go, until nothing fits.',
   summary:
     'Stack three filters, get zero results, and most UIs leave you guessing which one to drop. Sieve never makes anything vanish: excluded items travel into a tray grouped by the filter that caught them, every chip shows its cost before and after you press it, and the empty state names the culprit.',
   craft: [

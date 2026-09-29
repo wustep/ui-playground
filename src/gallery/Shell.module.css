@@ -252,8 +252,44 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 8px 16px;
   margin-bottom: 8px;
   padding-left: 2px;
+}
+
+.try {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  min-width: 0;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--fg-2);
+}
+
+.tryLabel {
+  flex: none;
+  padding: 2px 7px;
+  border-radius: var(--radius-xs);
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  font-family: var(--label-font);
+  font-size: var(--label-size);
+  font-weight: 600;
+  text-transform: var(--label-case);
+  letter-spacing: var(--label-tracking);
+}
+
+.stageActions {
+  display: flex;
+  flex: none;
+  gap: 2px;
+}
+
+.stageActions :global(.ui-btn[aria-pressed='true']) {
+  --btn-fg: var(--fg);
+  --btn-bg: var(--surface);
+  --btn-edge: var(--edge);
 }
 
 .stage {
@@ -269,6 +305,11 @@
   background-image: var(--stage-pattern);
   background-size: var(--stage-pattern-size);
   overflow: hidden;
+}
+
+.stage > * {
+  min-width: 0; /* grid items default to min-content; let demos shrink to the column */
+  max-width: 100%;
 }
 
 .stage[data-compare] {

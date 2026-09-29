@@ -6,6 +6,7 @@ export const inchworm: PatternMeta = {
   name: 'Inchworm',
   job: 'Selection',
   tagline: 'A segmented control whose pill stretches, then gathers itself.',
+  try: 'Click Year, then Day. Watch which edge leads and where the label flips colour.',
   summary:
     'Segmented controls usually teleport or slide a rigid pill, so the eye loses the thread between old and new. Inchworm drives each edge on its own spring: the leading edge reaches, the trailing edge follows, and the labels invert exactly where the pill overlaps them.',
   craft: [

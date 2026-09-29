@@ -151,13 +151,15 @@ export function Sieve<T extends { id: string }>({
               exit={{ opacity: 0 }}
               transition={tuning.reflow}
             >
-              <p>
-                Nothing fits all {active.length} filters. <strong>{model.release.label}</strong> is holding back{' '}
-                {model.cost.get(model.release.id)}.
-              </p>
-              <button className="ui-btn" data-size="sm" onClick={() => toggle(model.release!.id)}>
-                Drop {model.release.label}
-              </button>
+              <div className={s.emptyCard}>
+                <p>
+                  Nothing fits all {active.length} filters. <strong>{model.release.label}</strong> is holding back{' '}
+                  {model.cost.get(model.release.id)}.
+                </p>
+                <button className="ui-btn" data-size="sm" onClick={() => toggle(model.release!.id)}>
+                  Drop {model.release.label}
+                </button>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

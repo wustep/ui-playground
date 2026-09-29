@@ -1,5 +1,6 @@
 import { motion } from 'motion/react'
 import { PATTERNS, numberOf } from '../patterns'
+import { JOB_SHORT } from '../patterns/types'
 import s from './Shell.module.css'
 
 const SHORTCUTS: [string[], string][] = [
@@ -28,7 +29,7 @@ export function Sidebar({ active }: { active: string }) {
                 {current && <motion.span layoutId="nav-marker" className={s.navMarker} transition={MARKER.spring} />}
                 <span className={s.navNum}>{numberOf(p)}</span>
                 <span className={s.navName}>{p.name}</span>
-                <span className={s.navJob}>{p.job}</span>
+                <span className={s.navJob}>{JOB_SHORT[p.job] ?? p.job}</span>
               </a>
             </li>
           )

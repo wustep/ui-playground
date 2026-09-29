@@ -13,7 +13,7 @@ export const PLANTS: Plant[] = [
   { id: 'p1', name: 'Snake plant', price: 32, light: 'low', petSafe: false, care: 'easy', hue: 135, leaves: 3 },
   { id: 'p2', name: 'Calathea', price: 44, light: 'medium', petSafe: true, care: 'fussy', hue: 155, leaves: 4 },
   { id: 'p3', name: 'ZZ plant', price: 38, light: 'low', petSafe: false, care: 'easy', hue: 145, leaves: 5 },
-  { id: 'p4', name: 'Parlor palm', price: 29, light: 'low', petSafe: true, care: 'easy', hue: 128, leaves: 5 },
+  { id: 'p4', name: 'Parlor palm', price: 29, light: 'low', petSafe: true, care: 'fussy', hue: 128, leaves: 5 },
   { id: 'p5', name: 'Fiddle leaf', price: 78, light: 'bright', petSafe: false, care: 'fussy', hue: 120, leaves: 3 },
   { id: 'p6', name: 'Spider plant', price: 18, light: 'medium', petSafe: true, care: 'easy', hue: 110, leaves: 5 },
   { id: 'p7', name: 'Pothos', price: 22, light: 'low', petSafe: false, care: 'easy', hue: 100, leaves: 4 },

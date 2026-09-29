@@ -6,6 +6,7 @@ export const loupe: PatternMeta = {
   name: 'Loupe',
   job: 'Data density',
   tagline: 'Scan sixteen rows at a glance; the one you’re on opens itself.',
+  try: 'Sweep your pointer down the list, or click it and use ↑ ↓.',
   summary:
     'Dense lists make you choose between overview (one line per row) and detail (click to open, lose your place). Loupe keeps every row one line tall and magnifies only where you are looking, so you can sweep the whole list and read each item’s detail without a single click.',
   craft: [

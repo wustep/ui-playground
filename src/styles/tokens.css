@@ -214,16 +214,18 @@
 
   --danger: #ff5733;
   --danger-fg: #070a2b;
-  --danger-soft: rgb(255 87 51 / 0.24);
+  /* Soft states are recesses, not tints: a translucent hue over klein blue
+     turns purple, so meaning rides on the text/icon colour instead. */
+  --danger-soft: rgb(7 10 43 / 0.34);
   --danger-ink: #ffb3a1; /* legible coral on klein blue */
   --hazard-bg: repeating-linear-gradient(-45deg, rgb(7 10 43 / 0.28) 0 7px, transparent 7px 14px);
   --hazard-edge: #070a2b;
   --success: #43f5a4;
-  --success-soft: rgb(67 245 164 / 0.2);
+  --success-soft: rgb(7 10 43 / 0.34);
   --warning: #ffae1f;
-  --warning-soft: rgb(255 174 31 / 0.22);
+  --warning-soft: rgb(7 10 43 / 0.34);
   --info: #9fdcff;
-  --info-soft: rgb(159 220 255 / 0.2);
+  --info-soft: rgb(7 10 43 / 0.34);
 
   --focus: #d8ff3a;
   --selection: rgb(216 255 58 / 0.35);

@@ -6,6 +6,7 @@ export const strata: PatternMeta = {
   name: 'Strata',
   job: 'Feedback',
   tagline: 'Toasts that settle into sediment instead of vanishing.',
+  try: 'Press Publish, let it settle, then hover the coloured bands.',
   summary:
     'Auto-dismissing toasts are gone before you look up, and an error that disappears is an error you never saw. Strata lets each toast have its moment, then compresses it into a thin band coloured by severity. The bands pile into a glanceable history that opens back up into readable rows on hover.',
   craft: [

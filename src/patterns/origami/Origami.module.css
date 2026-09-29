@@ -15,6 +15,9 @@
   align-items: center;
   height: 40px;
   min-width: 0;
+  /* Perspective lives on the row so unfolded crumbs return to transform: none
+     (a per-element matrix3d keeps them on a soft-rasterized 3D layer). */
+  perspective: 240px;
 }
 
 .item {

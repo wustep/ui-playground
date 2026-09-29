@@ -37,7 +37,6 @@ export const ORIGAMI: OrigamiTuning = {
 
 const SEP_PX = 20 // separator slot
 const PLEAT_GAP = 2 // px between neighbouring pleats
-const PERSPECTIVE = 240
 
 interface Props {
   path: string[]
@@ -145,7 +144,6 @@ export function Origami({ path, onNavigate, tuning = ORIGAMI }: Props) {
                       width: closed ? tuning.pleatPx : (widths[i] ?? 'auto'),
                       rotateY: closed ? (i % 2 ? 1 : -1) * tuning.foldAngle : 0,
                     }}
-                    style={{ transformPerspective: PERSPECTIVE }}
                     transition={tuning.fold}
                     onPointerEnter={(e: PointerEvent) => folded && e.pointerType === 'mouse' && openPeek()}
                     onPointerLeave={() => folded && closePeek()}

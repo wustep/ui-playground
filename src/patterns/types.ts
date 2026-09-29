@@ -10,6 +10,11 @@ export type Job =
   | 'Navigation'
   | 'Feedback'
 
+/** Compact labels where space is tight (sidebar). */
+export const JOB_SHORT: Partial<Record<Job, string>> = {
+  'Progressive disclosure': 'Disclosure',
+}
+
 export interface PatternMeta {
   /** URL slug: #/slug */
   slug: string
@@ -17,6 +22,8 @@ export interface PatternMeta {
   job: Job
   /** One line, shown in the index. */
   tagline: string
+  /** An instruction that sets up the pattern's key moment. Shown above the stage. */
+  try: string
   /** The problem, then the move. Two sentences max. */
   summary: string
   /** Specific details that make it feel right. */

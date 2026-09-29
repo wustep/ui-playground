@@ -6,6 +6,7 @@ export const ledger: PatternMeta = {
   name: 'Ledger',
   job: 'Progressive disclosure',
   tagline: 'A multi-step form that writes its own receipt as you go.',
+  try: 'Book 4 guests at the chef’s counter. Then open Party and make it 6.',
   summary:
     'Wizards hide what’s ahead, then make you confirm everything again on a separate review page. Ledger shows every step as a receipt line from the start, opens one at a time as a card, folds each answer back into its line, and by the end the receipt already is the review.',
   craft: [

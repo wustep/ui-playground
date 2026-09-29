@@ -63,7 +63,16 @@ export function App() {
               animate={{ opacity: 1, y: 0, transition: PAGE.spring }}
               exit={{ opacity: 0, transition: PAGE.exit }}
             >
-              {pattern ? <PatternPage pattern={pattern} compare={compare} /> : <Home />}
+              {pattern ? (
+                <PatternPage
+                  pattern={pattern}
+                  compare={compare}
+                  dialsOpen={dialsOpen}
+                  onTune={() => setDialsOpen((v) => !v)}
+                />
+              ) : (
+                <Home />
+              )}
             </motion.div>
           </AnimatePresence>
         </main>

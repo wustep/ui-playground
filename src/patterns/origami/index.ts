@@ -6,6 +6,7 @@ export const origami: PatternMeta = {
   name: 'Origami',
   job: 'Navigation',
   tagline: 'Breadcrumbs that fold into pleats instead of collapsing to “…”.',
+  try: 'Drag the window’s right edge inward, then hover the pleats.',
   summary:
     'Truncated breadcrumbs swap the middle of a path for an ellipsis, which hides how deep you are and turns every jump into two clicks. Origami folds middle folders into paper pleats, one pleat per folder, so depth stays countable, and hovering unfolds them in place, ready to click.',
   craft: [

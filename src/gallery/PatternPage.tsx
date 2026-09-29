@@ -6,7 +6,14 @@ import s from './Shell.module.css'
 
 const REPO = 'https://github.com/wustep/ui-playground/blob/main/src/patterns/'
 
-export function PatternPage({ pattern, compare }: { pattern: PatternMeta; compare: boolean }) {
+interface Props {
+  pattern: PatternMeta
+  compare: boolean
+  dialsOpen: boolean
+  onTune: () => void
+}
+
+export function PatternPage({ pattern, compare, dialsOpen, onTune }: Props) {
   const [runId, setRunId] = useState(0)
   const { Demo } = pattern
   const index = PATTERNS.indexOf(pattern)
@@ -24,10 +31,25 @@ export function PatternPage({ pattern, compare }: { pattern: PatternMeta; compar
       </header>
 
       <div className={s.stageBar}>
-        <span className="t-label">{compare ? 'Every theme, one set of dials' : 'Live'}</span>
-        <button className="ui-btn" data-variant="ghost" data-size="sm" onClick={() => setRunId((n) => n + 1)}>
-          <ResetIcon /> Reset demo
-        </button>
+        <p className={s.try}>
+          <span className={s.tryLabel}>Try</span>
+          {pattern.try}
+        </p>
+        <div className={s.stageActions}>
+          <button
+            className="ui-btn"
+            data-variant="ghost"
+            data-size="sm"
+            aria-pressed={dialsOpen}
+            onClick={onTune}
+            title={compare ? 'One set of dials drives every theme' : 'Tune timing and springs live'}
+          >
+            <TuneIcon /> Tune
+          </button>
+          <button className="ui-btn" data-variant="ghost" data-size="sm" onClick={() => setRunId((n) => n + 1)}>
+            <ResetIcon /> Reset
+          </button>
+        </div>
       </div>
 
       {compare ? (
@@ -94,6 +116,16 @@ export function PatternPage({ pattern, compare }: { pattern: PatternMeta; compar
         </span>
       </a>
     </article>
+  )
+}
+
+function TuneIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden>
+      <path d="M2 4.5h7M12 4.5h2M2 11.5h2M7 11.5h7" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+      <circle cx="10.5" cy="4.5" r="1.6" stroke="currentColor" strokeWidth="1.4" />
+      <circle cx="5.5" cy="11.5" r="1.6" stroke="currentColor" strokeWidth="1.4" />
+    </svg>
   )
 }
 

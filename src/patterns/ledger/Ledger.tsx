@@ -76,7 +76,13 @@ export function Ledger<V>({
   const complete = open === null && steps.every((st, i) => done[i] && st.valid(values))
 
   // Focus follows the open card, so keyboard users land in the form.
+  // Never on mount: a demo shouldn't grab focus (or scroll) on page load.
+  const mounted = useRef(false)
   useEffect(() => {
+    if (!mounted.current) {
+      mounted.current = true
+      return
+    }
     if (open === null) return
     const t = setTimeout(() => {
       cardRef.current?.querySelector<HTMLElement>('input, button:not([data-skip-focus]), [tabindex="0"]')?.focus()

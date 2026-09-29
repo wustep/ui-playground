@@ -1,4 +1,5 @@
 import { PATTERNS, numberOf } from '../patterns'
+import { JOB_SHORT } from '../patterns/types'
 import s from './Shell.module.css'
 
 const PRINCIPLES = [
@@ -30,7 +31,7 @@ export function Home() {
               <span className={s.indexNum}>{numberOf(p)}</span>
               <span className={`t-display ${s.indexName}`}>{p.name}</span>
               <span className={s.indexTagline}>{p.tagline}</span>
-              <span className={s.indexJob}>{p.job}</span>
+              <span className={s.indexJob}>{JOB_SHORT[p.job] ?? p.job}</span>
             </a>
           </li>
         ))}
