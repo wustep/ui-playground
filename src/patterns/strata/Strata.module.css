@@ -1,0 +1,274 @@
+.dock {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: min(300px, calc(100% - 28px));
+  pointer-events: none;
+}
+
+.dock > * {
+  pointer-events: auto;
+}
+
+.live {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Toast ──────────────────────────────────────────────── */
+
+.toast {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: start;
+  padding: 11px 10px 12px 12px;
+  overflow: hidden;
+  border: var(--stroke) solid var(--edge);
+  background: var(--surface);
+  box-shadow: var(--shadow-3);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  color: var(--success);
+  background: var(--success-soft);
+}
+
+.icon[data-severity='info'] {
+  color: var(--info);
+  background: var(--info-soft);
+}
+
+.icon[data-severity='warning'] {
+  color: var(--warning);
+  background: var(--warning-soft);
+}
+
+.icon[data-severity='error'] {
+  color: var(--danger-ink);
+  background: var(--danger-soft);
+}
+
+.toastText {
+  display: grid;
+  gap: 2px;
+  padding-top: 2px;
+}
+
+.title {
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--fg);
+}
+
+.body {
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--fg-2);
+}
+
+.close {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-xs);
+  font-size: 15px;
+  color: var(--fg-3);
+}
+
+.close:hover {
+  color: var(--fg);
+  background: var(--surface-2);
+}
+
+/* How long until it settles */
+.drain {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  transform-origin: left center;
+  background: var(--success);
+  opacity: 0.7;
+  transition: transform 100ms linear;
+}
+
+.toast[data-severity='info'] .drain {
+  background: var(--info);
+}
+
+.toast[data-severity='warning'] .drain {
+  background: var(--warning);
+}
+
+.toast[data-severity='error'] .drain {
+  background: var(--danger);
+}
+
+/* ── Strata ─────────────────────────────────────────────── */
+
+.strata {
+  display: grid;
+  gap: 6px;
+  padding: 8px 8px 4px;
+  border-radius: var(--radius-md);
+  transition: background-color 200ms ease;
+}
+
+.strata:hover,
+.strata[data-open='true'] {
+  background: color-mix(in oklab, var(--surface) 80%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.bands {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.band {
+  position: relative;
+  overflow: hidden;
+  --ink: var(--success);
+}
+
+.band[data-severity='info'] {
+  --ink: var(--info);
+}
+
+.band[data-severity='warning'] {
+  --ink: var(--warning);
+}
+
+.band[data-severity='error'] {
+  --ink: var(--danger);
+}
+
+.bandPaper,
+.bandInk {
+  position: absolute;
+  inset: 0;
+}
+
+.bandPaper {
+  background: var(--surface);
+  border: var(--stroke) solid var(--edge);
+}
+
+.bandInk {
+  background: var(--ink);
+}
+
+.band[data-unread='true']::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 18px;
+  background: repeating-linear-gradient(-45deg, var(--surface) 0 2px, transparent 2px 4px);
+  opacity: 0.6;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.row {
+  --ink: var(--success);
+  background: var(--surface);
+  border: var(--stroke) solid var(--line);
+}
+
+.row[data-severity='info'] {
+  --ink: var(--info);
+}
+
+.row[data-severity='warning'] {
+  --ink: var(--warning);
+}
+
+.row[data-severity='error'] {
+  --ink: var(--danger);
+}
+
+.rowContent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 30px;
+  padding: 0 10px 0 8px;
+}
+
+.rowMark {
+  flex: none;
+  width: 3px;
+  height: 14px;
+  border-radius: 2px;
+  background: var(--ink);
+}
+
+.rowTitle {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12.5px;
+  color: var(--fg);
+}
+
+.rowAgo {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-3);
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 2px 4px;
+  font-family: var(--label-font);
+  font-size: var(--label-size);
+  font-weight: var(--label-weight);
+  text-transform: var(--label-case);
+  letter-spacing: var(--label-tracking);
+  color: var(--fg-3);
+  text-align: left;
+}
+
+.legendCount {
+  font-family: var(--font-mono);
+  color: var(--fg-2);
+}
+
+.legendOlder {
+  color: var(--fg-3);
+}
+
+.unread {
+  margin-left: auto;
+  color: var(--danger-ink);
+}

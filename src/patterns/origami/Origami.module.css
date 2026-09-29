@@ -1,0 +1,131 @@
+.nav {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* While unfolded, the tail may be pushed out: fade it rather than cut it. */
+.nav[data-peek='true'] {
+  mask-image: linear-gradient(90deg, #000 calc(100% - 36px), transparent);
+  -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 36px), transparent);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  min-width: 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  flex: none;
+  min-width: 0;
+  height: 100%;
+}
+
+.item[data-last='true'] {
+  flex: 0 1 auto;
+  overflow: hidden;
+}
+
+.sep {
+  display: grid;
+  place-items: center;
+  flex: none;
+  overflow: hidden;
+  font-size: 13px;
+  color: var(--fg-3);
+}
+
+.crumb,
+.current {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 9px;
+  border-radius: var(--radius-sm);
+  font-size: 13.5px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.crumb {
+  position: relative;
+  flex: none;
+  overflow: hidden;
+  border: 1px solid transparent;
+  color: var(--fg-2);
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 140ms ease,
+    box-shadow 180ms ease;
+}
+
+.crumb:hover {
+  color: var(--fg);
+  background: var(--surface-2);
+}
+
+.crumb:focus-visible {
+  outline-offset: -2px;
+}
+
+/* Unfolded pleats lift off the page like opened paper. */
+.crumb[data-folded='true'] {
+  background: var(--surface);
+  border-color: var(--edge);
+  box-shadow: var(--shadow-1);
+  color: var(--fg);
+}
+
+/* Closed pleats: alternating light/dark faces, like a folded fan. */
+.crumb[data-closed='true'] {
+  --fold-dark: color-mix(in oklab, var(--fg) 22%, var(--surface));
+  height: 24px;
+  padding: 0;
+  border-radius: 2px;
+  border-color: var(--edge);
+  box-shadow: none;
+  background: linear-gradient(90deg, var(--surface) 10%, var(--fold-dark));
+  cursor: pointer;
+}
+
+.crumb[data-closed='true'][data-odd='true'] {
+  background: linear-gradient(90deg, var(--fold-dark), var(--surface) 90%);
+}
+
+.crumb[data-closed='true']:hover {
+  --fold-dark: color-mix(in oklab, var(--accent) 45%, var(--surface));
+}
+
+.label {
+  display: block;
+}
+
+.current {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 28px;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.measure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  pointer-events: none;
+  display: flex;
+  white-space: nowrap;
+}
+
+.measure > * {
+  flex: none;
+  border: 1px solid transparent;
+}

@@ -1,0 +1,48 @@
+.app {
+  position: relative;
+  width: min(100%, 680px);
+  height: 440px;
+  overflow: hidden;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+  padding: 10px 12px 10px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.docTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.doc {
+  display: grid;
+  gap: 11px;
+  max-width: 400px;
+  padding: 28px 20px 0 28px;
+}
+
+.docHeading {
+  margin-bottom: 8px;
+  font-size: 30px;
+  color: var(--fg);
+}
+
+.lineSkeleton {
+  display: block;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: color-mix(in oklab, var(--fg) 9%, transparent);
+}

@@ -1,0 +1,224 @@
+.receipt {
+  position: relative;
+  width: min(100%, 392px);
+  padding: 22px 18px 26px;
+  border: var(--stroke) solid var(--edge);
+  border-bottom: 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background: var(--surface);
+  box-shadow: var(--shadow-2);
+}
+
+/* Torn bottom edge */
+.tear {
+  --tooth: 14px;
+  position: absolute;
+  left: calc(var(--stroke) * -1);
+  right: calc(var(--stroke) * -1);
+  bottom: calc(var(--tooth) / -2 + 1px);
+  height: calc(var(--tooth) / 2);
+  background: var(--surface);
+  mask: conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) 50% / var(--tooth) 100%;
+  -webkit-mask: conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) 50% / var(--tooth) 100%;
+}
+
+.head {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  padding-bottom: 16px;
+  margin-bottom: 10px;
+  border-bottom: 1.5px dashed var(--edge);
+  text-align: center;
+}
+
+.steps {
+  display: grid;
+  gap: 1px;
+}
+
+.step {
+  position: relative;
+}
+
+.step[data-mode='open'] {
+  z-index: 1;
+  margin: 10px -14px;
+  background: var(--surface);
+  border: var(--stroke) solid var(--edge);
+  box-shadow: var(--shadow-3);
+}
+
+/* ── Receipt line ───────────────────────────────────────── */
+
+.line {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  width: 100%;
+  padding: 7px 4px;
+  border-radius: var(--radius-xs);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-align: left;
+  color: var(--fg);
+  transition: background-color 140ms ease;
+}
+
+.line:not(:disabled):hover {
+  background: var(--surface-2);
+}
+
+.line:not(:disabled):hover .lineValue {
+  color: var(--accent-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.line:disabled {
+  cursor: default;
+}
+
+.step[data-mode='todo'] .line {
+  color: var(--fg-3);
+  opacity: 0.7;
+}
+
+.lineLabel {
+  color: var(--fg-2);
+}
+
+.step[data-mode='todo'] .lineLabel {
+  color: var(--fg-3);
+}
+
+.leader {
+  flex: 1;
+  min-width: 16px;
+  border-bottom: 1.5px dotted var(--fg-3);
+  opacity: 0.55;
+  transform: translateY(-3px);
+}
+
+.receipt[data-leader='dashes'] .leader {
+  border-bottom-style: dashed;
+}
+
+.receipt[data-leader='none'] .leader {
+  border-bottom-color: transparent;
+}
+
+.lineValue {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.step[data-stale='true'] .lineValue {
+  color: var(--danger-ink);
+}
+
+.staleMark {
+  font-weight: 700;
+}
+
+/* ── Open card ──────────────────────────────────────────── */
+
+.card {
+  display: grid;
+  gap: 16px;
+  padding: 16px 16px 14px;
+}
+
+.cardHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cardTitle {
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.progress {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--fg-3);
+}
+
+.cardFoot {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ── Total, confirm, stamp ──────────────────────────────── */
+
+.total {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 12px 4px 0;
+  border-top: 1.5px dashed var(--edge);
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.totalValue {
+  font-variant-numeric: tabular-nums;
+}
+
+.confirm {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.confirm :global(.ui-btn) {
+  width: 100%;
+  height: 40px;
+}
+
+.confirmNote {
+  text-align: center;
+  font-size: 12px;
+  color: var(--fg-3);
+}
+
+.stamp {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  width: max-content;
+  margin: 20px auto 0;
+  padding: 8px 16px 7px;
+  border: 2.5px solid var(--accent-ink);
+  border-radius: var(--radius-sm);
+  color: var(--accent-ink);
+  pointer-events: none;
+}
+
+.stampWord {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.stampCode {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+.after {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
