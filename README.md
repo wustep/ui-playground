@@ -52,7 +52,7 @@ Themes are CSS custom properties scoped to `[data-theme]` (`src/styles/tokens.cs
 | Selection | Filled with ink | Lit amber, with glow | Chartreuse, hard outline |
 | Elevation | Soft, layered, directional | Top highlight + hairline, no shadow to speak of | Hard offset shadows; pressing removes the offset |
 | Geometry | 8–18px radii | 6–14px radii | 0–6px radii, 2px strokes |
-| Voice | Instrument Serif display, sentence-case labels | Geist display, mono uppercase labels | Bricolage Grotesque 800, mono uppercase labels |
+| Voice | Source Serif 4 display, sentence-case labels | Geist display, mono uppercase labels | Source Sans 3 800, mono uppercase labels |
 
 Patterns only read tokens (`--surface`, `--edge`, `--selected-bg`, `--danger-ink`, `--hazard-bg`, `--shadow-2`, `--label-case`…). Two rules keep them honest:
 
