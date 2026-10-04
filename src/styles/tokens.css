@@ -90,9 +90,9 @@
 
   /* Voice */
   --font-ui: 'Geist', ui-sans-serif, system-ui, sans-serif;
-  --font-display: 'Instrument Serif', 'Iowan Old Style', Georgia, serif;
+  --font-display: 'Source Serif 4 Variable', 'Iowan Old Style', Georgia, serif;
   --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
-  --font-numeral: 'Instrument Serif', Georgia, serif;
+  --font-numeral: 'Source Serif 4 Variable', Georgia, serif;
   --display-weight: 400;
   --display-tracking: -0.01em;
   --numeral-weight: 400;
@@ -257,9 +257,9 @@
   --glow: none;
 
   --font-ui: 'Geist', ui-sans-serif, system-ui, sans-serif;
-  --font-display: 'Bricolage Grotesque', 'Geist', ui-sans-serif, sans-serif;
+  --font-display: 'Source Sans 3 Variable', 'Geist', ui-sans-serif, sans-serif;
   --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
-  --font-numeral: 'Bricolage Grotesque', 'Geist', ui-sans-serif, sans-serif;
+  --font-numeral: 'Source Sans 3 Variable', 'Geist', ui-sans-serif, sans-serif;
   --display-weight: 800;
   --display-tracking: -0.035em;
   --numeral-weight: 800;
